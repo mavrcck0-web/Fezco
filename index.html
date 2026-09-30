@@ -1,0 +1,2003 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>OCEANIA — Luxury Cruise</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: #06121b;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* ==============================
+   BACKGROUND
+============================== */
+
+body::before {
+    content: "";
+    position: fixed;
+
+    width: 600px;
+    height: 600px;
+
+    top: -250px;
+    left: -180px;
+
+    background: #22c8e8;
+
+    filter: blur(180px);
+
+    opacity: .12;
+
+    pointer-events: none;
+
+    z-index: -2;
+}
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    right: -180px;
+    bottom: -200px;
+
+    background: #386bff;
+
+    filter: blur(180px);
+
+    opacity: .12;
+
+    pointer-events: none;
+
+    z-index: -2;
+}
+
+/* ==============================
+   NAVIGATION
+============================== */
+
+.navbar {
+    position: fixed;
+
+    top: 18px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: min(1200px, 92%);
+
+    min-height: 68px;
+
+    padding: 10px 18px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    border-radius: 22px;
+
+    background: rgba(8,25,35,.72);
+
+    border: 1px solid rgba(255,255,255,.13);
+
+    backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.35),
+        inset 0 1px rgba(255,255,255,.15);
+
+    z-index: 1000;
+
+    animation: navIn .8s ease;
+}
+
+.logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #38d8ed,
+            #3678ff
+        );
+
+    box-shadow:
+        0 0 25px rgba(50,190,255,.35),
+        inset 0 1px rgba(255,255,255,.65);
+
+    font-size: 22px;
+}
+
+.nav-links {
+    display: flex;
+
+    gap: 4px;
+
+    list-style: none;
+}
+
+.nav-links a {
+    color: rgba(255,255,255,.68);
+
+    text-decoration: none;
+
+    padding: 11px 15px;
+
+    border-radius: 12px;
+
+    font-size: 14px;
+
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: white;
+
+    background: rgba(255,255,255,.08);
+
+    transform: translateY(-2px);
+}
+
+.book-nav {
+    border: 0;
+
+    padding: 12px 19px;
+
+    border-radius: 13px;
+
+    color: white;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2cd6ec,
+            #4871ff
+        );
+
+    box-shadow:
+        0 10px 25px rgba(50,150,255,.25),
+        inset 0 1px rgba(255,255,255,.55);
+
+    transition: .3s;
+}
+
+.book-nav:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 35px rgba(50,150,255,.4);
+}
+
+/* ==============================
+   HERO
+============================== */
+
+.hero {
+    min-height: 100vh;
+
+    padding: 170px 7% 90px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 60px;
+}
+
+.hero-content {
+    animation: heroIn 1s ease;
+}
+
+.badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 8px 14px;
+
+    border-radius: 30px;
+
+    color: #8eeaff;
+
+    background: rgba(40,200,230,.07);
+
+    border: 1px solid rgba(50,210,240,.16);
+
+    font-size: 12px;
+
+    margin-bottom: 25px;
+}
+
+.badge span {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #4ee6f7;
+
+    box-shadow: 0 0 12px #4ee6f7;
+
+    animation: pulse 1.5s infinite;
+}
+
+.hero h1 {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(55px, 7vw, 92px);
+
+    line-height: .95;
+
+    letter-spacing: -4px;
+
+    margin-bottom: 25px;
+}
+
+.gradient {
+    background:
+        linear-gradient(
+            100deg,
+            #fff,
+            #69e7f5,
+            #688cff
+        );
+
+    background-size: 200%;
+
+    -webkit-background-clip: text;
+
+    color: transparent;
+
+    animation: gradientMove 5s linear infinite;
+}
+
+.hero p {
+    max-width: 570px;
+
+    color: rgba(255,255,255,.57);
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    margin-bottom: 32px;
+}
+
+.hero-buttons {
+    display: flex;
+
+    gap: 12px;
+}
+
+.primary {
+    padding: 15px 23px;
+
+    border: 0;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2ed8ed,
+            #4770ff
+        );
+
+    color: white;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 30px rgba(50,150,255,.25);
+
+    transition: .3s;
+}
+
+.primary:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 18px 40px rgba(50,150,255,.4);
+}
+
+.secondary {
+    padding: 15px 23px;
+
+    border: 1px solid rgba(255,255,255,.13);
+
+    border-radius: 14px;
+
+    background: rgba(255,255,255,.05);
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.secondary:hover {
+    background: rgba(255,255,255,.1);
+
+    transform: translateY(-4px);
+}
+
+/* ==============================
+   CRUISE SHIP
+============================== */
+
+.ship-area {
+    height: 500px;
+
+    display: grid;
+
+    place-items: center;
+
+    position: relative;
+
+    animation: float 5s ease-in-out infinite;
+}
+
+.ship-glow {
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    background: #35d7ee;
+
+    filter: blur(100px);
+
+    opacity: .16;
+}
+
+.ship-circle {
+    width: 430px;
+    height: 430px;
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(70,215,240,.15),
+            transparent 65%
+        );
+
+    border: 1px solid rgba(100,220,240,.13);
+
+    box-shadow:
+        inset 0 0 80px rgba(50,200,240,.05);
+}
+
+.ship {
+    font-size: 180px;
+
+    transform: rotate(-5deg);
+
+    filter:
+        drop-shadow(0 30px 25px rgba(0,0,0,.45))
+        drop-shadow(0 0 25px rgba(70,210,240,.15));
+}
+
+.wave {
+    position: absolute;
+
+    width: 420px;
+    height: 100px;
+
+    bottom: 60px;
+
+    border-top: 2px solid rgba(80,220,245,.15);
+
+    border-radius: 50%;
+}
+
+/* ==============================
+   BOOKING PANEL
+============================== */
+
+.booking-section {
+    padding: 30px 7% 100px;
+}
+
+.booking {
+    max-width: 1150px;
+
+    margin: auto;
+
+    padding: 30px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.11),
+            rgba(255,255,255,.035)
+        );
+
+    border: 1px solid rgba(255,255,255,.13);
+
+    backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.3),
+        inset 0 1px rgba(255,255,255,.15);
+}
+
+.booking-title {
+    margin-bottom: 25px;
+}
+
+.booking-title h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 30px;
+}
+
+.booking-title p {
+    color: rgba(255,255,255,.42);
+
+    font-size: 13px;
+
+    margin-top: 5px;
+}
+
+.booking-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr
+        1fr
+        auto;
+
+    gap: 11px;
+}
+
+.field {
+    padding: 16px;
+
+    border-radius: 15px;
+
+    background: rgba(0,0,0,.15);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    transition: .3s;
+}
+
+.field:hover {
+    border-color: rgba(70,215,240,.35);
+
+    background: rgba(255,255,255,.06);
+
+    transform: translateY(-3px);
+}
+
+.field label {
+    display: block;
+
+    color: rgba(255,255,255,.35);
+
+    font-size: 11px;
+
+    margin-bottom: 7px;
+}
+
+.field select,
+.field input {
+    width: 100%;
+
+    border: 0;
+
+    outline: 0;
+
+    color: white;
+
+    background: transparent;
+
+    font-family: inherit;
+
+    font-size: 14px;
+}
+
+.field select option {
+    color: black;
+}
+
+.search-btn {
+    border: 0;
+
+    border-radius: 15px;
+
+    padding: 0 23px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #29d7ec,
+            #5068ff
+        );
+
+    color: white;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px rgba(50,150,255,.25);
+
+    transition: .3s;
+}
+
+.search-btn:hover {
+    transform: scale(1.04);
+
+    box-shadow:
+        0 15px 35px rgba(50,150,255,.4);
+}
+
+/* ==============================
+   DESTINATIONS
+============================== */
+
+.section {
+    padding: 100px 7%;
+}
+
+.heading {
+    max-width: 650px;
+
+    margin: auto auto 45px;
+
+    text-align: center;
+}
+
+.heading h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 48px;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 12px;
+}
+
+.heading p {
+    color: rgba(255,255,255,.5);
+
+    line-height: 1.7;
+}
+
+.destinations {
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+.destination {
+    min-height: 380px;
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    padding: 27px;
+
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.09),
+            rgba(255,255,255,.025)
+        );
+
+    transition: .4s;
+
+    cursor: pointer;
+}
+
+.destination::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.85),
+            transparent 65%
+        );
+
+    z-index: 1;
+}
+
+.destination:hover {
+    transform: translateY(-10px);
+
+    border-color: rgba(80,220,240,.35);
+
+    box-shadow:
+        0 30px 60px rgba(0,0,0,.3);
+}
+
+.destination-emoji {
+    position: absolute;
+
+    inset: 0;
+
+    display: grid;
+
+    place-items: center;
+
+    font-size: 125px;
+
+    transition: .5s;
+}
+
+.destination:hover .destination-emoji {
+    transform: scale(1.13);
+}
+
+.destination-info {
+    position: relative;
+
+    z-index: 2;
+}
+
+.destination-info span {
+    color: #71e8f5;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.destination-info h3 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 29px;
+
+    margin: 7px 0;
+}
+
+.destination-info p {
+    color: rgba(255,255,255,.55);
+
+    font-size: 13px;
+}
+
+/* ==============================
+   CABINS
+============================== */
+
+.cabins {
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+.cabin {
+    padding: 30px;
+
+    border-radius: 25px;
+
+    background: rgba(255,255,255,.05);
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    transition: .4s;
+
+    position: relative;
+}
+
+.cabin:hover {
+    transform: translateY(-8px);
+
+    background: rgba(255,255,255,.08);
+
+    border-color: rgba(70,215,240,.3);
+}
+
+.cabin-icon {
+    font-size: 40px;
+
+    margin-bottom: 20px;
+}
+
+.cabin h3 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 25px;
+
+    margin-bottom: 10px;
+}
+
+.cabin p {
+    color: rgba(255,255,255,.48);
+
+    line-height: 1.7;
+
+    font-size: 13px;
+
+    margin-bottom: 20px;
+}
+
+.price {
+    color: #75e7f2;
+
+    font-size: 22px;
+
+    font-weight: 800;
+}
+
+.price small {
+    color: rgba(255,255,255,.35);
+
+    font-size: 11px;
+
+    font-weight: 400;
+}
+
+.cabin button {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 12px;
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,.05);
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.cabin button:hover {
+    background: #35d7ed;
+
+    color: #06121b;
+}
+
+/* ==============================
+   FOOTER
+============================== */
+
+footer {
+    padding: 35px 7%;
+
+    border-top: 1px solid rgba(255,255,255,.08);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    color: rgba(255,255,255,.3);
+
+    font-size: 12px;
+}
+
+.footer-logo {
+    color: white;
+
+    font-weight: 800;
+}
+
+/* ==============================
+   MODAL
+============================== */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    place-items: center;
+
+    padding: 20px;
+
+    background: rgba(0,0,0,.68);
+
+    backdrop-filter: blur(12px);
+
+    z-index: 2000;
+}
+
+.modal.show {
+    display: grid;
+}
+
+.modal-content {
+    width: min(520px, 100%);
+
+    padding: 35px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #102936,
+            #071720
+        );
+
+    border: 1px solid rgba(255,255,255,.14);
+
+    box-shadow:
+        0 40px 100px rgba(0,0,0,.55);
+
+    animation: modalIn .3s ease;
+}
+
+.modal-content h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 34px;
+
+    margin-bottom: 20px;
+}
+
+.confirmation {
+    padding: 20px;
+
+    border-radius: 18px;
+
+    background: rgba(70,210,240,.07);
+
+    border: 1px solid rgba(70,210,240,.13);
+
+    margin-bottom: 20px;
+
+    line-height: 1.8;
+
+    color: rgba(255,255,255,.7);
+}
+
+.close {
+    width: 100%;
+
+    padding: 14px;
+
+    border: 0;
+
+    border-radius: 13px;
+
+    background: linear-gradient(135deg,#2cd8ec,#4d70ff);
+
+    color: white;
+
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+/* ==============================
+   ANIMATIONS
+============================== */
+
+@keyframes navIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%,-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%,0);
+    }
+}
+
+@keyframes heroIn {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes pulse {
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: .5;
+    }
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 200%;
+    }
+}
+
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: scale(.9) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* ==============================
+   RESPONSIVE
+============================== */
+
+@media(max-width:1000px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .ship-area {
+        height: 400px;
+    }
+
+    .booking-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .search-btn {
+        height: 55px;
+    }
+
+    .destinations,
+    .cabins {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width:700px) {
+
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .nav-links {
+        order: 3;
+
+        width: 100%;
+
+        overflow-x: auto;
+
+        justify-content: center;
+    }
+
+    .hero {
+        padding-top: 190px;
+    }
+
+    .ship-circle {
+        width: 330px;
+        height: 330px;
+    }
+
+    .ship {
+        font-size: 135px;
+    }
+
+    .booking-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .destinations,
+    .cabins {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        flex-direction: column;
+
+        gap: 12px;
+    }
+}
+
+@media(max-width:450px) {
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons button {
+        width: 100%;
+    }
+
+    .ship-circle {
+        width: 280px;
+        height: 280px;
+    }
+
+    .ship {
+        font-size: 110px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ==============================
+     NAVIGATION
+============================== -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            ⚓
+        </div>
+
+        OCEANIA
+
+    </div>
+
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="#home">Home</a>
+        </li>
+
+        <li>
+            <a href="#destinations">Destinations</a>
+        </li>
+
+        <li>
+            <a href="#cabins">Cabins</a>
+        </li>
+
+        <li>
+            <a href="#about">About</a>
+        </li>
+
+    </ul>
+
+
+    <button class="book-nav"
+            onclick="scrollToBooking()">
+
+        Book Now
+
+    </button>
+
+</nav>
+
+
+<!-- ==============================
+     HERO
+============================== -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="badge">
+
+            <span></span>
+
+            Luxury at sea
+
+        </div>
+
+
+        <h1>
+
+            Your journey.<br>
+
+            <span class="gradient">
+                Your ocean.
+            </span>
+
+        </h1>
+
+
+        <p>
+
+            Sail beyond the ordinary with OCEANIA.
+            Discover breathtaking destinations, world-class
+            dining, and unforgettable moments at sea.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <button class="primary"
+                    onclick="scrollToBooking()">
+
+                Find Your Cruise ✦
+
+            </button>
+
+
+            <button class="secondary"
+                    onclick="scrollToDestinations()">
+
+                Explore Destinations
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="ship-area">
+
+        <div class="ship-glow"></div>
+
+        <div class="ship-circle">
+
+            <div class="ship">
+                🛳️
+            </div>
+
+        </div>
+
+        <div class="wave"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     BOOKING
+============================== -->
+
+<section class="booking-section"
+         id="booking">
+
+    <div class="booking">
+
+        <div class="booking-title">
+
+            <h2>
+                Find your perfect cruise
+            </h2>
+
+            <p>
+                Choose your destination and start your adventure.
+            </p>
+
+        </div>
+
+
+        <div class="booking-grid">
+
+            <div class="field">
+
+                <label>
+                    DESTINATION
+                </label>
+
+                <select id="destination">
+
+                    <option>
+                        Mediterranean
+                    </option>
+
+                    <option>
+                        Caribbean
+                    </option>
+
+                    <option>
+                        Alaska
+                    </option>
+
+                    <option>
+                        Asia
+                    </option>
+
+                    <option>
+                        Northern Europe
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    DEPARTURE
+                </label>
+
+                <input
+                    id="date"
+                    type="date"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    GUESTS
+                </label>
+
+                <select id="guests">
+
+                    <option>
+                        1 Guest
+                    </option>
+
+                    <option>
+                        2 Guests
+                    </option>
+
+                    <option>
+                        3 Guests
+                    </option>
+
+                    <option>
+                        4 Guests
+                    </option>
+
+                    <option>
+                        5+ Guests
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    CABIN
+                </label>
+
+                <select id="cabin">
+
+                    <option value="899">
+                        Ocean View
+                    </option>
+
+                    <option value="1299">
+                        Balcony
+                    </option>
+
+                    <option value="2499">
+                        Suite
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button class="search-btn"
+                    onclick="searchCruise()">
+
+                Search
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     DESTINATIONS
+============================== -->
+
+<section class="section"
+         id="destinations">
+
+    <div class="heading">
+
+        <h2>
+            Sail somewhere extraordinary.
+        </h2>
+
+        <p>
+            From turquoise Caribbean waters to dramatic
+            northern landscapes, choose your next adventure.
+        </p>
+
+    </div>
+
+
+    <div class="destinations">
+
+
+        <div class="destination"
+             onclick="selectDestination('Mediterranean')">
+
+            <div class="destination-emoji">
+                🏛️
+            </div>
+
+            <div class="destination-info">
+
+                <span>
+                    FROM $899
+                </span>
+
+                <h3>
+                    Mediterranean
+                </h3>
+
+                <p>
+                    Ancient cities, beautiful coastlines
+                    and unforgettable sunsets.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="destination"
+             onclick="selectDestination('Caribbean')">
+
+            <div class="destination-emoji">
+                🏝️
+            </div>
+
+            <div class="destination-info">
+
+                <span>
+                    FROM $799
+                </span>
+
+                <h3>
+                    Caribbean
+                </h3>
+
+                <p>
+                    Crystal-clear waters, tropical beaches
+                    and island adventures.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="destination"
+             onclick="selectDestination('Alaska')">
+
+            <div class="destination-emoji">
+                🏔️
+            </div>
+
+            <div class="destination-info">
+
+                <span>
+                    FROM $1,199
+                </span>
+
+                <h3>
+                    Alaska
+                </h3>
+
+                <p>
+                    Glaciers, mountains and incredible
+                    wilderness.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="destination"
+             onclick="selectDestination('Asia')">
+
+            <div class="destination-emoji">
+                🌸
+            </div>
+
+            <div class="destination-info">
+
+                <span>
+                    FROM $999
+                </span>
+
+                <h3>
+                    Asia
+                </h3>
+
+                <p>
+                    Discover vibrant cities, culture
+                    and exotic coastlines.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="destination"
+             onclick="selectDestination('Northern Europe')">
+
+            <div class="destination-emoji">
+                ❄️
+            </div>
+
+            <div class="destination-info">
+
+                <span>
+                    FROM $1,099
+                </span>
+
+                <h3>
+                    Northern Europe
+                </h3>
+
+                <p>
+                    Fjords, charming cities and
+                    breathtaking landscapes.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="destination"
+             onclick="selectDestination('South Pacific')">
+
+            <div class="destination-emoji">
+                🌊
+            </div>
+
+            <div class="destination-info">
+
+                <span>
+                    FROM $1,499
+                </span>
+
+                <h3>
+                    South Pacific
+                </h3>
+
+                <p>
+                    Remote islands, warm waters and
+                    pure tropical escape.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     CABINS
+============================== -->
+
+<section class="section"
+         id="cabins">
+
+    <div class="heading">
+
+        <h2>
+            Choose your cabin.
+        </h2>
+
+        <p>
+            Find the perfect space to relax,
+            recharge and enjoy the view.
+        </p>
+
+    </div>
+
+
+    <div class="cabins">
+
+
+        <div class="cabin">
+
+            <div class="cabin-icon">
+                🛏️
+            </div>
+
+            <h3>
+                Ocean View
+            </h3>
+
+            <p>
+                Comfortable accommodation with
+                beautiful ocean views and everything
+                you need for a relaxing journey.
+            </p>
+
+            <div class="price">
+                $899
+                <small>
+                    / person
+                </small>
+            </div>
+
+            <button onclick="bookCabin('Ocean View', 899)">
+                Select Cabin
+            </button>
+
+        </div>
+
+
+        <div class="cabin">
+
+            <div class="cabin-icon">
+                🌅
+            </div>
+
+            <h3>
+                Balcony
+            </h3>
+
+            <p>
+                Wake up to fresh sea air with your
+                own private balcony overlooking
+                the endless ocean.
+            </p>
+
+            <div class="price">
+                $1,299
+                <small>
+                    / person
+                </small>
+            </div>
+
+            <button onclick="bookCabin('Balcony', 1299)">
+                Select Cabin
+            </button>
+
+        </div>
+
+
+        <div class="cabin">
+
+            <div class="cabin-icon">
+                👑
+            </div>
+
+            <h3>
+                Luxury Suite
+            </h3>
+
+            <p>
+                Spacious accommodation with premium
+                amenities, elevated service and
+                spectacular views.
+            </p>
+
+            <div class="price">
+                $2,499
+                <small>
+                    / person
+                </small>
+            </div>
+
+            <button onclick="bookCabin('Luxury Suite', 2499)">
+                Select Cabin
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     ABOUT
+============================== -->
+
+<section class="section"
+         id="about">
+
+    <div class="heading">
+
+        <h2>
+            More than a cruise.
+        </h2>
+
+        <p>
+            OCEANIA combines elegant ships, unforgettable
+            destinations and personalized service to create
+            journeys worth remembering.
+        </p>
+
+        <br>
+
+        <button class="primary"
+                onclick="scrollToBooking()">
+
+            Start Your Journey
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     FOOTER
+============================== -->
+
+<footer>
+
+    <div class="footer-logo">
+        ⚓ OCEANIA
+    </div>
+
+    <div>
+        Explore • Relax • Discover
+    </div>
+
+    <div>
+        © 2026 OCEANIA CRUISES
+    </div>
+
+</footer>
+
+
+<!-- ==============================
+     MODAL
+============================== -->
+
+<div class="modal"
+     id="modal">
+
+    <div class="modal-content">
+
+        <h2>
+            Cruise Found ✦
+        </h2>
+
+        <div class="confirmation"
+             id="confirmation">
+
+        </div>
+
+        <button class="close"
+                onclick="closeModal()">
+
+            Continue
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* ==============================
+   SCROLL
+============================== */
+
+function scrollToBooking() {
+
+    document
+        .getElementById("booking")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+function scrollToDestinations() {
+
+    document
+        .getElementById("destinations")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+/* ==============================
+   DESTINATION
+============================== */
+
+function selectDestination(destination) {
+
+    document
+        .getElementById("destination")
+        .value = destination;
+
+    scrollToBooking();
+
+}
+
+
+/* ==============================
+   SEARCH
+============================== */
+
+function searchCruise() {
+
+    const destination =
+        document.getElementById("destination").value;
+
+    const date =
+        document.getElementById("date").value;
+
+    const guests =
+        document.getElementById("guests").value;
+
+    const cabin =
+        document.getElementById("cabin");
+
+    const cabinName =
+        cabin.options[cabin.selectedIndex].text;
+
+    const price =
+        cabin.value;
+
+
+    let formattedDate = "Flexible date";
+
+    if (date) {
+
+        const selected =
+            new Date(date);
+
+        formattedDate =
+            selected.toLocaleDateString(
+                "en-US",
+                {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric"
+                }
+            );
+
+    }
+
+
+    document.getElementById("confirmation").innerHTML = `
+
+        <strong>Destination:</strong>
+        ${destination}<br>
+
+        <strong>Departure:</strong>
+        ${formattedDate}<br>
+
+        <strong>Guests:</strong>
+        ${guests}<br>
+
+        <strong>Cabin:</strong>
+        ${cabinName}<br>
+
+        <strong>Starting price:</strong>
+        $${Number(price).toLocaleString()}
+        per person
+
+    `;
+
+
+    document
+        .getElementById("modal")
+        .classList.add("show");
+
+}
+
+
+/* ==============================
+   CABIN
+============================== */
+
+function bookCabin(name, price) {
+
+    document
+        .getElementById("cabin")
+        .value = price;
+
+    document
+        .getElementById("booking")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+/* ==============================
+   MODAL
+============================== */
+
+function closeModal() {
+
+    document
+        .getElementById("modal")
+        .classList.remove("show");
+
+}
+
+
+document
+    .getElementById("modal")
+    .addEventListener(
+        "click",
+        function(event) {
+
+            if (event.target === this) {
+                closeModal();
+            }
+
+        }
+    );
+
+
+/* ==============================
+   DEFAULT DATE
+============================== */
+
+const today =
+    new Date();
+
+today.setDate(
+    today.getDate() + 7
+);
+
+document.getElementById("date").value =
+    today.toISOString().split("T")[0];
+
+</script>
+
+</body>
+</html>
+```
